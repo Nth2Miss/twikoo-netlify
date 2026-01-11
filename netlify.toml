@@ -1,7 +1,5 @@
 [build]
   functions = "netlify/functions" 
-  # 注意：如果你的函数文件在根目录的 functions 文件夹，请改为 functions = "functions"
-  # 大部分 twikoo-netlify 仓库使用的是 netlify/functions
 
 [[headers]]
   for = "/*"
@@ -14,4 +12,5 @@
   from = "/*"
   to = "/.netlify/functions/twikoo"
   status = 200
-  force = true  # <--- 关键：强制覆盖默认行为
+  force = true
+
