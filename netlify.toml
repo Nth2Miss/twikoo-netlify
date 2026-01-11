@@ -1,0 +1,7 @@
+[[headers]]
+  # 对所有路径应用以下 Header
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Content-Length, Authorization, Accept, X-Requested-With"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS, PUT, PATCH, DELETE"
