@@ -1,17 +1,17 @@
 [build]
-  functions = "functions"
+  functions = "netlify/functions" 
+  # 注意：如果你的函数文件在根目录的 functions 文件夹，请改为 functions = "functions"
+  # 大部分 twikoo-netlify 仓库使用的是 netlify/functions
 
-# 1. 跨域设置 (CORS) - 解决之前的报错
 [[headers]]
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
     Access-Control-Allow-Headers = "Content-Type, Content-Length, Authorization, Accept, X-Requested-With"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS, PUT, PATCH, DELETE"
 
-# 2. 重定向规则 (Redirects) - 解决现在的 404 报错
-# 这段话的意思是：把所有发送到域名的请求，都转发给 Twikoo 的云函数处理
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/twikoo"
   status = 200
+  force = true  # <--- 关键：强制覆盖默认行为
